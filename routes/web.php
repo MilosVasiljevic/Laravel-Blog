@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\File;
 
 Auth::routes();
 
+Route::get('/ping', fn() => 'pong');
+
+
 // help
 Route::get('/migrate', function () {
     Artisan::call('migrate', ['--force' => true]);

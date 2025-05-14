@@ -28,6 +28,9 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
+RUN chmod -R 777 storage bootstrap/cache
+
+
 EXPOSE 8000
 
 # Pokreni Laravel server kroz skriptu
