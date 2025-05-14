@@ -15,7 +15,10 @@ WORKDIR /var/www
 COPY . .
 
 # Instaliraj PHP dependencije
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install
+
+# Kreiraj .env
+RUN cp .env.example .env
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
