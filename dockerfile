@@ -11,26 +11,20 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Postavi radni direktorijum
 WORKDIR /var/www
 
-# Kopiraj fajlove u image
+# Kopiraj fajlove
 COPY . .
 
-# Instaliraj PHP zavisnosti
+# Instaliraj PHP dependencije
 RUN composer install --no-dev --optimize-autoloader
-
-# Kopiraj .env.example u .env
-RUN cp .env.example .env
-
-# Generiši Laravel ključ
-RUN php artisan key:generate
-
-# Očisti konfiguracije i rute
-RUN php artisan config:clear && php artisan route:clear
 
 # Dozvole
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Expose port
+# Kopiraj start skriptu
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 EXPOSE 8000
 
-# Startuj server
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# Pokreni Laravel server kroz skriptu
+CMD ["/start.sh"]
