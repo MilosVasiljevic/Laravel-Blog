@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Artisan;
 
+use Illuminate\Support\Facades\File;
+
 
 Auth::routes();
 
@@ -21,6 +23,11 @@ Route::get('/key', function () {
 Route::get('/link', function () {
     Artisan::call('storage:link');
     return 'Storage linked';
+});
+
+Route::get('/logs', function () {
+    $log = File::get(storage_path('logs/laravel.log'));
+    return nl2br(e(Str::limit($log, 5000))); // prikazuje do 5000 karaktera
 });
 
 
