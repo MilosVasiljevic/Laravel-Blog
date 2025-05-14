@@ -11,6 +11,15 @@ Auth::routes();
 
 Route::get('/ping', fn() => 'pong');
 
+Route::get('/debug-log', function () {
+    $logPath = storage_path('logs/laravel.log');
+    if (!file_exists($logPath)) {
+        return 'Log file does not exist.';
+    }
+
+    return response()->file($logPath);
+});
+
 
 // help
 Route::get('/migrate', function () {

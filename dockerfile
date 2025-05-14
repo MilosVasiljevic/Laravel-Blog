@@ -29,6 +29,9 @@ RUN chmod -R 777 storage bootstrap/cache
 # Expose port 8000
 EXPOSE 8000
 
+RUN php artisan config:clear && php artisan config:cache
+
+
 # Pokreni PHP server sa public/ kao root
 CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
 

@@ -1,6 +1,5 @@
 <?php
 
-echo "Index loaded"; exit;
 
 
 /**
