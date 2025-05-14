@@ -46,7 +46,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('admin') }}/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('admin') }}/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{ route('user.profile') }}" class="d-block">{{ Auth::user()->name }}</a>
@@ -154,11 +154,10 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      <div class="mb-0">Developed By Zakir on <a href="https://www.youtube.com/playlist?list=PLl4v4A2HI0YixTm5AsoTu-sKxiQti4-r6">Laravel Blog Development </a>Tutorial Series</div>
+    <div class="d-none d-sm-inline">
+      <div class="mb-0">Laravel Blog by <a href="https://www.linkedin.com/in/milos-vasiljevic-web-developer/">Milos Vasiljevic</a></div>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+
   </footer>
 </div>
 <!-- ./wrapper -->

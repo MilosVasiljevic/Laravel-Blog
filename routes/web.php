@@ -14,6 +14,12 @@ Route::get('/tag/{slug}', 'FrontEndController@tag')->name('website.tag');
 Route::get('/contact', 'FrontEndController@contact')->name('website.contact');
 Route::get('/post/{slug}', 'FrontEndController@post')->name('website.post');
 
+// users
+Route::get('/users', 'FrontEndController@users')->name('website.users');
+
+// user page
+Route::get('/user/{id}', 'FrontEndController@user')->name('website.user');
+
 Route::post('/contact', 'FrontEndController@send_message')->name('website.contact');
 
 // Admin Panel Routes

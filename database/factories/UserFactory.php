@@ -51,7 +51,7 @@ $factory->define(Tag::class, function(Faker $faker){
 // Post factory
 $factory->define(Post::class, function(Faker $faker){
     $id = rand(30, 300);
-    $image = "https://i.picsum.photos/id/".$id."/640/480.jpg";
+    $image = "https://d1jyxxz9imt9yb.cloudfront.net/medialib/2958/image/s768x1300/DRRR202208_DroughtResponse_004_370218_reduced.jpg";
     return [
         'title' => $faker->sentence(),
         'slug' => Str::slug($faker->sentence()),

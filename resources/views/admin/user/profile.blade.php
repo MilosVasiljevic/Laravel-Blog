@@ -79,7 +79,7 @@
                                 <div class="card">
                                     <div class="card-body text-center">
                                         <div style="height: 200px; width: 200px; overflow:hidden;" class="m-auto">
-                                            <img src="{{ asset($user->image) }}" alt="" class="img-fluid rounded-circle img-rounded">
+                                            <img src="{{ asset($user->image) }}" alt="" class="" style="width:100%">
                                         </div>
                                         <div class="mt-2">
                                             <h5>{{ $user->name }}</h5>

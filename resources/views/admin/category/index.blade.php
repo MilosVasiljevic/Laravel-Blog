@@ -39,7 +39,7 @@
                                     <th style="width: 10px">#</th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Post Counnt</th>
+                                    <th>Post Count</th>
                                     <th style="width: 40px">Action</th>
                                 </tr>
                             </thead>

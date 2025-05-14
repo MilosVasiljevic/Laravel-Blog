@@ -18,5 +18,6 @@ View::share('categories', $categories);
 $setting = Setting::first();
 View::share('setting', $setting);
 
+Log in to admin dashboard with:
 newuser@example.com
 password123

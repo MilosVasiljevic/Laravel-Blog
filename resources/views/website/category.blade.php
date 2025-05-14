@@ -27,9 +27,12 @@
               <h2><a href="{{ route('website.post', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
               <div class="post-meta align-items-center text-left clearfix">
                 <figure class="author-figure mb-0 mr-3 float-left">
-                  <img src="@if($post->user->image){{ asset($post->user->image) }} @else {{ asset('website/images/user.png') }} @endif" alt="Image" class="img-fluid">
+                
+                  <img src="{{ asset(optional($post->user)->image ?: 'website/images/user.png') }}" alt="Image" class="img-fluid">
+
                 </figure>
-                <span class="d-inline-block mt-1">By <a href="#">{{ $post->user->name }}</a></span>
+                <span class="d-inline-block mt-1">By <a href="#">{{ optional($post->user)->name ?? 'Nepoznat autor' }}
+</a></span>
                 <span>&nbsp;-&nbsp; {{ $post->created_at->format('M d, Y') }}</span>
               </div>
               

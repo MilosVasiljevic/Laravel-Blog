@@ -736,8 +736,8 @@ h1, h2, h3, h4, h5,
   .entry2 .post-meta a {
     color: #000; }
   .entry2 .post-meta .author-figure img {
-    width: 30px;
-    border-radius: 50%; }
+    width: 50px;
+    border-radius: 0%; }
 
 .entry3, .entry4 {
   margin-bottom: 30px; }
@@ -1111,8 +1111,8 @@ h1, h2, h3, h4, h5,
     color: #000; }
 
 .bio img {
-  max-width: 150px;
-  border-radius: 50%; }
+  max-width: 200px;
+  border-radius: 0%; }
 
 .custom-pagination span, .custom-pagination a {
   text-align: center;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Mini Blog</title>
+    <title>Laravel Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -47,7 +47,7 @@
           </div>
 
           <div class="col-4 site-logo">
-            <a href="index.html" class="text-black h2 mb-0">Mini Blog</a>
+            <a href="index.html" class="text-black h2 mb-0">Laravel Blog</a>
           </div>
 
           <div class="col-8 text-right">
@@ -56,7 +56,8 @@
                 @foreach($categories as $category)
                 <li><a href="{{ route('website.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a></li>
                 @endforeach
-                <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li>
+                 <li><a href="{{ route('website.users') }}">Users</a></li>
+                <!-- <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span class="icon-search"></span></a></li> -->
               </ul>
             </nav>
             <a href="#" class="site-menu-toggle js-menu-toggle text-black d-inline-block d-lg-none"><span class="icon-menu h3"></span></a></div>
@@ -101,14 +102,6 @@
 
               </p>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center">
-            <p>
-              {{ $setting->copyright }} | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-              <div class="mb-0">Developed By Zakir on <a href="https://www.youtube.com/playlist?list=PLl4v4A2HI0YixTm5AsoTu-sKxiQti4-r6">Laravel Blog Development </a>Tutorial Series</div>
-              </p>
           </div>
         </div>
       </div>

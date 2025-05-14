@@ -10,6 +10,8 @@ use App\Contact;
 use App\Category;
 use Illuminate\Http\Request;
 
+//use App\Models\User;
+
 class FrontEndController extends Controller
 {
     public function home(){
@@ -57,6 +59,19 @@ class FrontEndController extends Controller
    
     public function contact(){
             return view('website.contact');
+    }
+
+    // Controlelr for users page
+    public function users(){
+
+            $users = User::latest()->get();
+            return view('website.users', compact('users'));
+    }
+
+    // Controller for single user page
+    public function user($id){
+            $user = User::findOrFail($id);
+            return view('website.user', compact('user'));
     }
    
     public function post($slug){

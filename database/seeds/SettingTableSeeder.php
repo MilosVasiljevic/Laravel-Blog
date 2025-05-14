@@ -12,8 +12,8 @@ class SettingTableSeeder extends Seeder
     public function run()
     {
         App\Setting::create([
-            'name' => 'Example.com',
-            'copyright' => 'Copyright © 2020 All rights reserved',
+            'name' => 'Laravel Blog',
+            'copyright' => 'Copyright © 2025 All rights reserved',
         ]);
     }
 }

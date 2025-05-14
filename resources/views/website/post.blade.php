@@ -10,9 +10,10 @@
                     <h1 class="mb-4"><a href="javascript:void()">{{ $post->title }}</a></h1>
                     <div class="post-meta align-items-center text-center">
                         <figure class="author-figure mb-0 mr-3 d-inline-block">
-                            <img src="@if($post->user->image) {{ $post->user->image }} @else {{ asset('website/images/user.png') }} @endif" alt="Image" class="img-fluid">
+                            <img src="{{ $post->image ?? asset('website/images/user.png') }}" alt="Post image"  class="img-fluid">
                         </figure>
-                        <span class="d-inline-block mt-1">By {{ $post->user->name }}</span>
+                        <span class="d-inline-block mt-1">{{ optional($post->user)->name ?? 'Nepoznat autor' }}
+</span>
                         <span>&nbsp;-&nbsp; {{ $post->created_at->format('M d, Y') }}</span>
                     </div>
                 </div>
@@ -189,12 +190,13 @@
                 <!-- END sidebar-box -->
                 <div class="sidebar-box">
                     <div class="bio text-center">
-                        <img src="@if($post->user->image) {{ $post->user->image }} @else {{ asset('website/images/user.png') }} @endif" alt="Image Placeholder"
+                        <img src="{{ $post->image ?? asset('website/images/user.png') }}" alt="Image Placeholder"
                             class="img-fluid mb-5">
                         <div class="bio-body">
-                            <h2>{{ $post->user->name }}</h2>
-                            <p class="mb-4">{{ $post->user->description }}</p>
-                            <p><a href="#" class="btn btn-primary btn-sm rounded px-4 py-2">Read my bio</a></p>
+                            <h2>{{ optional($post->user)->name ?? 'Nepoznat autor' }}</h2>
+                            <p class="mb-4">{{ optional($post->user)->description ?? '' }}</p>
+
+                            <p><a href="{{ url('user/' . optional($post->user)->id ) }}" class="btn btn-primary btn-sm rounded px-4 py-2">Read my bio</a></p>
                             <p class="social">
                                 <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
                                 <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
