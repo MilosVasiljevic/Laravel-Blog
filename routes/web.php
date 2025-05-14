@@ -26,8 +26,14 @@ Route::get('/link', function () {
 });
 
 Route::get('/logs', function () {
-    $log = File::get(storage_path('logs/laravel.log'));
-    return nl2br(e(Str::limit($log, 5000))); // prikazuje do 5000 karaktera
+    try {
+        $logPath = storage_path('logs/laravel.log');
+        if (!File::exists($logPath)) return 'Log file not found.';
+        $log = File::get($logPath);
+        return nl2br(e(Str::limit($log, 8000)));
+    } catch (\Exception $e) {
+        return 'Log error: ' . $e->getMessage();
+    }
 });
 
 

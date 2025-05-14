@@ -15,6 +15,9 @@ WORKDIR /var/www
 # Kopiraj fajlove
 COPY . .
 
+COPY .env .env
+
+
 # Instaliraj PHP dependencije
 RUN composer install --no-dev --optimize-autoloader
 
