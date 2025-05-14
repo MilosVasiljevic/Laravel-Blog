@@ -1,7 +1,5 @@
 <?php
 
-echo "Index loaded"; exit;
-
 
 /**
  * Laravel - A PHP Framework For Web Artisans
