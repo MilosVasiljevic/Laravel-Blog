@@ -2,7 +2,27 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Artisan;
+
+
 Auth::routes();
+
+// help
+Route::get('/migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migration complete';
+});
+
+Route::get('/key', function () {
+    Artisan::call('key:generate');
+    return 'Key generated';
+});
+
+Route::get('/link', function () {
+    Artisan::call('storage:link');
+    return 'Storage linked';
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
