@@ -1,6 +1,7 @@
-FROM php:7.4-fpm
+# PHP 8.2 FPM (modernija verzija od 7.4)
+FROM php:8.2-fpm
 
-# Instalacija sistemskih paketa
+# Instalacija sistemskih paketa i PHP ekstenzija
 RUN apt-get update && apt-get install -y \
     git curl libpng-dev libonig-dev libxml2-dev zip unzip \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
@@ -9,29 +10,20 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Postavi radni direktorijum
-WORKDIR /var/www
+WORKDIR /var/www/html
 
-# Kopiraj fajlove
-COPY . . 
+# Kopiraj sve fajlove (osim onih u .dockerignore)
+COPY . .
 
-# Kopiraj .env fajl
-COPY .env .env
-
-# Instaliraj PHP dependencije
+# Instaliraj PHP zavisnosti
 RUN composer install --no-dev --optimize-autoloader
 
-# Dozvole za direktorijume
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-
-# Dozvole za čitanje i pisanje
+# Dozvole za Laravel storage i cache
+RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 777 storage bootstrap/cache
 
-# Expose port 8000
-EXPOSE 8000
+# Expose port
+EXPOSE 8080
 
-RUN php artisan config:clear && php artisan config:cache
-
-
-# Pokreni PHP server sa public/ kao root
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
-
+# Start PHP server
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]

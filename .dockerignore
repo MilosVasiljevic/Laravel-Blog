@@ -1,3 +1,7 @@
 node_modules
-vendor
+npm-debug.log
+package-lock.json
+yarn.lock
 .git
+vendor
+.env
